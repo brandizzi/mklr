@@ -1,0 +1,12 @@
+0000000000000000000000000000000000000000 10572bebcc9b8141bb5927ec5a1834e76c135f43 Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456000096 -0300	commit (initial): First master commit.
+10572bebcc9b8141bb5927ec5a1834e76c135f43 fe766b49bc98088c1d9de030ec5fa4fb2d255f0f Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456000107 -0300	commit: Second master commit.
+fe766b49bc98088c1d9de030ec5fa4fb2d255f0f 78aa0d713bc19ea01d15171d8de3d1da22c4aee7 Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456000121 -0300	commit: Third master commit.
+78aa0d713bc19ea01d15171d8de3d1da22c4aee7 4e12c215334ae412466c386e676badaeabc68d76 Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456000139 -0300	commit: Fourth master commit.
+4e12c215334ae412466c386e676badaeabc68d76 78aa0d713bc19ea01d15171d8de3d1da22c4aee7 Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456000150 -0300	checkout: moving from master to branch1
+78aa0d713bc19ea01d15171d8de3d1da22c4aee7 2edeac257918028a7b1585be6820ce99eb67e580 Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456000190 -0300	commit: First branch1 commit.
+2edeac257918028a7b1585be6820ce99eb67e580 5176b86e0ce9f4d82f4f59de7f4a8b692e2ae992 Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456000205 -0300	commit: Second branch1 commit.
+5176b86e0ce9f4d82f4f59de7f4a8b692e2ae992 fe766b49bc98088c1d9de030ec5fa4fb2d255f0f Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456000219 -0300	checkout: moving from branch1 to branch2
+fe766b49bc98088c1d9de030ec5fa4fb2d255f0f f742527e64d590db5b0282bdf474c3230f24ac4a Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456000240 -0300	commit: First branch2 commit.
+f742527e64d590db5b0282bdf474c3230f24ac4a 84857c12b84237c30579a5e852e6ecbd5fbbfa2f Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456000249 -0300	commit: Second branch2 commit.
+84857c12b84237c30579a5e852e6ecbd5fbbfa2f 4e12c215334ae412466c386e676badaeabc68d76 Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456060570 -0300	checkout: moving from branch2 to master
+4e12c215334ae412466c386e676badaeabc68d76 b31bc3aec13846e15f88ef31fd8639e03a1df39a Adam Victor Nazareth Brandizzi <adam.brandizzi@liferay.com> 1456060602 -0300	commit: Fifth master commit.
