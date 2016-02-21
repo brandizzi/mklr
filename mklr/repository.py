@@ -17,19 +17,28 @@
 # You should have received a copy of the GNU Lesser General Public License along
 # with mklr. If not, see <http://www.gnu.org/licenses/>.
 
-from setuptools import setup, find_packages
+import git
 
-setup(
-    name="mklr",
-    version="0.0.1.dev1",
-    author='Adam Victor Brandizzi',
-    author_email='adam@brandizzi.com.br',
-    description='mklr',
-    license='LGPLv3',
-    url='http://bitbucket.com/brandizzi/mklr',
+class Repository(object):
+    """
+    ``mklr.repository.Repository`` is a class representing, well, Git repos. It
+    provides basic utilities we need when dealing with them, e. g. the ability
+    to clone a branch from a repository into a new one.
+    """
 
-    packages=find_packages(),
-    install_requires=['GitPython>=1.0.2'],
-    test_suite='mklr.tests',
-    test_loader='unittest:TestLoader',
-)
+    def __init__(self, location):
+        self.location = location
+        self.repo = git.Repo(location)
+
+    def checkout(self, branch):
+        self.repo.head.reference = branch
+
+    def get_head(self):
+        commit = self.repo.head.commit
+        return Commit(commit.hexsha, commit.message)
+
+class Commit(object):
+
+    def __init__(self, id, message):
+        self.id = id
+        self.message = message
