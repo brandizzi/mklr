@@ -16,3 +16,12 @@
 #
 # You should have received a copy of the GNU Lesser General Public License along
 # with mklr. If not, see <http://www.gnu.org/licenses/>.
+
+from inelegant.finder import TestFinder
+
+load_tests = TestFinder(
+    'mklr.repository', 'mklr.tests.repository'
+).load_tests
+
+if __name__ == "__main__":
+    unittest.main()
