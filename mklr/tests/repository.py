@@ -21,6 +21,7 @@ import unittest
 
 import os.path
 import tempfile
+import shutil
 
 from mklr.repository import Repository
 
@@ -73,6 +74,26 @@ class TestRepository(unittest.TestCase):
 
         self.assertEquals('84857c12b84237c30579a5e852e6ecbd5fbbfa2f', head.id)
         self.assertEquals('Second branch2 commit.\n', head.message)
+
+    def test_clone_branch(self):
+        """
+        ``mklr.repository.Repository`` should be able to clone itself in another
+        directory.
+        """
+        repo = Repository(repo1_dir())
+
+        temp_dir = tempfile.mkdtemp()
+        clone = repo.clone(to=temp_dir, branch='branch1')
+
+        head = clone.get_head()
+
+        self.assertEquals('5176b86e0ce9f4d82f4f59de7f4a8b692e2ae992', head.id)
+        self.assertEquals('Second branch1 commit.\n', head.message)
+
+        with open(os.path.join(temp_dir, 'file')) as f:
+            self.assertEquals('branch1 2\n', f.read())
+
+        shutil.rmtree(temp_dir)
 
 def repo1_dir(filename=__file__, path_components=('resources', 'repo1')):
     test_dir = os.path.dirname(filename)
