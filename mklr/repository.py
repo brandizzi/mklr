@@ -37,6 +37,11 @@ class Repository(object):
         commit = self.repo.head.commit
         return Commit(commit.hexsha, commit.message)
 
+    def clone(self, to, branch=None):
+        self.repo.clone(to, branch=branch)
+
+        return Repository(to)
+
 class Commit(object):
 
     def __init__(self, id, message):
