@@ -6,16 +6,16 @@
 #
 # mklr is free software: you can redistribute it and/or modify it under the
 # terms of the GNU Lesser General Public License as published by the Free
-# Software Foundation, either version 3 of the License, or (at your option) any
-# later version.
+# Software Foundation, either version 3 of the License, or (at your option)
+# any later version.
 #
 # mklr is distributed in the hope that it will be useful, but WITHOUT ANY
-# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
-# A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
 # details.
 #
-# You should have received a copy of the GNU Lesser General Public License along
-# with mklr. If not, see <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU Lesser General Public License
+# along with mklr. If not, see <http://www.gnu.org/licenses/>.
 
 import unittest
 
@@ -24,6 +24,7 @@ import tempfile
 import shutil
 
 from mklr.repository import Repository
+
 
 class TestRepository(unittest.TestCase):
     """
@@ -62,7 +63,6 @@ class TestRepository(unittest.TestCase):
         self.assertEquals('b31bc3aec13846e15f88ef31fd8639e03a1df39a', head.id)
         self.assertEquals('Fifth master commit.\n', head.message)
 
-
         repo.checkout('branch1')
         head = repo.get_head()
 
@@ -77,8 +77,8 @@ class TestRepository(unittest.TestCase):
 
     def test_clone_branch(self):
         """
-        ``mklr.repository.Repository`` should be able to clone itself in another
-        directory.
+        ``mklr.repository.Repository`` should be able to clone itself in
+        another directory.
         """
         repo = Repository(repo1_dir())
 
@@ -94,9 +94,3 @@ class TestRepository(unittest.TestCase):
             self.assertEquals('branch1 2\n', f.read())
 
         shutil.rmtree(temp_dir)
-
-def repo1_dir(filename=__file__, path_components=('resources', 'repo1')):
-    test_dir = os.path.dirname(filename)
-
-    return os.path.join(test_dir, *path_components)
-
