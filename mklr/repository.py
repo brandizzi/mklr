@@ -67,6 +67,34 @@ class Repository(object):
         self.repo.head.reset(index=True, working_tree=True)
 
     def get_head(self):
+        """
+        ``Repository.get_head()`` returns a ``Commit`` object representing the
+        current HEAD commit.
+
+        Consider our example repository, having master as its tip::
+
+        >>> from mklr.tests.util import repo1_dir
+        >>> repo_path = repo1_dir()
+        >>> r = Repository(repo_path)
+        >>> r.checkout('master')
+
+        Then ``get_head()`` will return the ``master``s head commit::
+
+        >>> commit = r.get_head()
+        >>> commit.id[:7]
+        u'b31bc3a'
+        >>> commit.message
+        u'Fifth master commit.\\n'
+
+        If we change branches, the HEAD changes as well::
+
+        >>> r.checkout('branch1')
+        >>> commit = r.get_head()
+        >>> commit.id[:7]
+        u'5176b86'
+        >>> commit.message
+        u'Second branch1 commit.\\n'
+        """
         commit = self.repo.head.commit
         return Commit(commit.hexsha, commit.message)
 
