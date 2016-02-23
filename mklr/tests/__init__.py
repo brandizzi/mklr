@@ -20,7 +20,8 @@
 from inelegant.finder import TestFinder
 
 load_tests = TestFinder(
-    'mklr.repository', 'mklr.tests.repository'
+    'mklr.repository', 'mklr.tests.repository',
+    'mklr.tests.util'
 ).load_tests
 
 if __name__ == "__main__":
