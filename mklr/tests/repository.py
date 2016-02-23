@@ -18,12 +18,13 @@
 # along with mklr. If not, see <http://www.gnu.org/licenses/>.
 
 import unittest
-
 import os.path
 import tempfile
 import shutil
 
 from mklr.repository import Repository
+
+from mklr.tests.util import repo1_dir
 
 
 class TestRepository(unittest.TestCase):

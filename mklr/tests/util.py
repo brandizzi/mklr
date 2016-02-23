@@ -23,8 +23,8 @@ import os.path
 def repo1_dir(filename=__file__, path_components=('resources', 'repo1')):
     """
     Returns the path to the repository used for most tests. This repository
-    This repository has three branches (``master``, ``branch1``, ``branch2``)
-    with the following commits::
+    has three branches (``master``, ``branch1``, ``branch2``) with the
+    following commits::
 
     * b31bc3a Fifth master commit.
     * 4e12c21 Fourth master commit.
