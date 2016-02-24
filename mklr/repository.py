@@ -99,7 +99,47 @@ class Repository(object):
         return Commit(commit.hexsha, commit.message)
 
     def clone(self, to, branch=None):
-        self.repo.clone(to, branch=branch)
+        """
+        ``Repository.clone()`` clones a repository into another given location.
+
+        Consider our example repository, having master as its tip::
+
+        >>> from mklr.tests.util import repo1_dir
+        >>> repo_path = repo1_dir()
+        >>> r = Repository(repo_path)
+        >>> r.checkout('master')
+        >>> r.get_head().message
+        u'Fifth master commit.\\n'
+
+        ``clone()`` will create a new repository, at a given location, with only
+        the current branch from the original one::
+
+        >>> import tempfile
+        >>> path = tempfile.mkdtemp()
+        >>> c = r.clone(path)
+        >>> c.get_head().message
+        u'Fifth master commit.\\n'
+
+        The working index will be ready as well::
+
+        >>> import os.path
+        >>> sorted(os.listdir(path))
+        ['.git', 'file']
+        >>> with open(os.path.join(path, 'file')) as f:
+        ...     f.read()
+        'master 5\\n'
+
+        You can also give the branch you expect to clone::
+
+        >>> path = tempfile.mkdtemp()
+        >>> c = r.clone(to=path, branch='branch1')
+        >>> c.get_head().message
+        u'Second branch1 commit.\\n'
+        """
+        if branch is not None:
+            self.repo.clone(to, b=branch)
+        else:
+            self.repo.clone(to)
 
         return Repository(to)
 
