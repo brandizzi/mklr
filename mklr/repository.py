@@ -111,8 +111,8 @@ class Repository(object):
         >>> r.get_head().message
         u'Fifth master commit.\\n'
 
-        ``clone()`` will create a new repository, at a given location, with only
-        the current branch from the original one::
+        ``clone()`` will create a new repository, at a given location, with
+        only the current branch from the original one::
 
         >>> import tempfile
         >>> path = tempfile.mkdtemp()
@@ -145,7 +145,32 @@ class Repository(object):
 
 
 class Commit(object):
+    """
+    ``Commit`` objects represent what we need to know about a commit, such as
+    its hex id and its message.
+    """
 
     def __init__(self, id, message):
+        """
+        ``Commit`` is a quite simple class: you just give the values you want
+        to set into it as arguments to the initializer::
+
+        >>> c = Commit(id='a023b', message='oh')
+        >>> c.message
+        'oh'
+        >>> c.id
+        'a023b'
+
+        So far it accepts the following commit properties::
+
+        * ``id``:
+
+            The SHA-1 id from the commit. (Actually, any id as a string, but
+            we are using only Git so it will be the SHA-1.
+
+        * ``message``:
+
+            The commit message.
+        """
         self.id = id
         self.message = message
