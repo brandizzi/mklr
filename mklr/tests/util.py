@@ -51,3 +51,31 @@ def repo1_dir(filename=__file__, path_components=('resources', 'repo1')):
     test_dir = os.path.dirname(filename)
 
     return os.path.join(test_dir, *path_components)
+
+
+def commands_dir(
+        filename=__file__, path_components=('resources', 'commands')):
+    r"""
+    Returns the path of a directory containing some Python scripts to be
+    used as scripts.
+
+    >>> path = commands_dir()
+
+    One of these is the ``cat.py`` script. It roughly emulates the ``cat``
+    command from Unix systems.
+
+    >>> from os.path import isfile, join
+    >>> isfile(join(path, 'cat.py'))
+    True
+
+    Given a list of files, it prints their contents to the standard output::
+
+    >>> import subprocess
+    >>> subprocess.check_output(
+    ...     args=['python', join(path, 'cat.py'), join(path, 'test')],
+    ... )
+    'example\n'
+    """
+    test_dir = os.path.dirname(filename)
+
+    return os.path.join(test_dir, *path_components)

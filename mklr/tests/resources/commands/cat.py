@@ -16,14 +16,26 @@
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with mklr. If not, see <http://www.gnu.org/licenses/>.
+"""
+Usage:
+    $ cat.py
+    $ cat.py <file 1> [<file 2> <file 3> ... ]
 
-from inelegant.finder import TestFinder
+Given a list of file names, write their contents into standard output. If none
+is given, writes standard input into standard output.
+"""
 
-load_tests = TestFinder(
-    'mklr.repository', 'mklr.tests.repository',
-    'mklr.command', 'mklr.tests.command',
-    'mklr.tests.util'
-).load_tests
+import sys
 
-if __name__ == "__main__":
-    unittest.main()
+if len(sys.argv) > 1:
+    try:
+        files = [open(a) for a in sys.argv[1:]]
+    except IOError as e:
+        sys.stderr.write('Command failed on '+e.filename+'\n')
+        sys.exit(1)
+else:
+    files = [sys.stdin]
+
+for f in files:
+    for l in f:
+        sys.stdout.write(l)
